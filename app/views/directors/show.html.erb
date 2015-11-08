@@ -24,9 +24,8 @@
       <dd>
         <ul>
           <% Movie.where({ :director_id => @director.id }).each do |movie| %>
-          <li>
-            <%= movie.title %>
-            (<%= movie.year %>)
+          <li class="list-group-item">
+            <a href="/movies/<%= movie.id %>"> <%= movie.title %>(<%= movie.year %>)</a>
           </li>
           <% end %>
 
@@ -53,7 +52,7 @@
               <input name="director_id" type="hidden" value="<%= @director.id %>">
 
               <button class="btn btn-success">
-              Add Movie to List
+                Add Movie to List
               </button>
               or
               <a href="/movies">Cancel</a>
